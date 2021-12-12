@@ -7,7 +7,7 @@
 int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 	double s;
 	int w, k;
-	if (n != m || m != h*h || n != h*h)
+	if (x->r != b->r || b->r > mat->r || x->r > mat->r || mat->r < mat->c)
 		return 2;
  	for( w= n-1; w >= 0; w-- ) {
 		s = 0;
