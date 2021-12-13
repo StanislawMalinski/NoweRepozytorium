@@ -17,9 +17,9 @@ int eliminate(Matrix *mat, Matrix *b)
 				maxsimum = l;
 		}
 		if(maxsimum != i){
-			pp = mat[i];
+			pp = mat->data[i];
 			mat->data[i] = mat->data[maxsimum];
-			mat->daya[maxsimum] = pp;
+			mat->data[maxsimum] = pp;
 			
 			pp = b->data[i];
 			b->data[i] = b->data[maxsimum];
