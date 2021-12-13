@@ -11,15 +11,15 @@ int eliminate(Matrix *mat, Matrix *b)
 	double *pp;
 	
 	for(i = 0; i < (mat->c - 1); i++){
-		maxsimum = h;
+		maxsimum = i;
 		for( l = i + 1; l < (mat->r); l++){
 			if(mat->data[maxsimum][i] < mat->data[l][i])
-				maksimum = l;
+				maxsimum = l;
 		}
 		if(maxsimum != i){
-			p = mat[i];
+			pp = mat[i];
 			mat->data[i] = mat->data[maxsimum];
-			mat->[maxsimum] = pp;
+			mat->daya[maxsimum] = pp;
 			
 			pp = b->data[i];
 			b->data[i] = b->data[maxsimum];
