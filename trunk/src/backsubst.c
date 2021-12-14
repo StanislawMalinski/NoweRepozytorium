@@ -9,9 +9,9 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 	int w, k;
 	if (x->r != b->r || b->r > mat->r || x->r > mat->r || mat->r < mat->c)
 		return 2;
- 	for( w= n-1; w >= 0; w-- ) {
+ 	for( w= (mat->r - 1); w >= 0; w-- ) {
 		s = 0;
-		for( k= w+1; k < n; k++ )
+		for( k= w+1; k < (mat->c); k++ )
 			s += mat->data[w][k]*x->data[k][0];
 		if( mat->data[w][w] == 0)
 			return 1;
