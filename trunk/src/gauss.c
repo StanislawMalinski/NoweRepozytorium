@@ -6,26 +6,29 @@
  */
 int eliminate(Matrix *mat, Matrix *b)
 {
-	int l, i, j, k, maxsimum;
+	int i, j, k, max;
 	double q;
-	double *pp;
-	
-	for(i = 0; i < (mat->c - 1); i++){
-		maxsimum = i;
-		for( l = i + 1; l < (mat->r); l++){
-			if(mat->data[maxsimum][i] < mat->data[l][i])
-				maxsimum = l;
-		}
-		if(maxsimum != i){
-			pp = mat->data[i];
-			mat->data[i] = mat->data[maxsimum];
-			mat->data[maxsimum] = pp;
-			
-			pp = b->data[i];
-			b->data[i] = b->data[maxsimum];
-			b->data[maxsimum] = pp;
-		}
-	
+	double *tmp;
+
+	for(i = 0; i < (mat->c - 1); i++)
+	{
+        max = i;
+        for(j = i+1; j < (mat->r); j++)
+        {
+            if(mat->data[j][i] > mat->data[max][i])
+            {
+                max = j;
+            }
+        }
+        if(max != i)
+        {
+            tmp = mat->data[i];
+            mat->data[i] = mat->data[max];
+            mat->data[max] = tmp;
+            tmp = b->data[i];
+            b->data[i] = b->data[max];
+            b->data[max] = tmp;
+        }
 		for(j = i+1; j < (mat->r); j++)
 		{
 			if(mat->data[i][i] != 0)
